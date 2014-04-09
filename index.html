@@ -13,6 +13,12 @@
 		<button id="animate">Animate</button>|<button id="clear">Clear Board</button>
 	</div>
 	<canvas width="600" height="400"></canvas>
+
+</body>
+
+</html>
+
+
 	<script>
 	var canvas = document.getElementsByTagName("canvas")[0];
 	var that = this
@@ -27,15 +33,13 @@
 	[25, 6], [25, 7], [35, 4], [35, 5], [36, 4],
 	[36, 5]
 	];
-	//canvas,width,height,game array
-	var newBoard = new this.Conway.Game(canvas,1000,1000,clickBoard);
-	//newBoard.start();
+	//doing this to initialize a board to click
+	new this.Conway.Game(canvas,1000,1000,clickBoard);
 
 	$("canvas").click(function(e){
-		var x = Math.floor((e.pageX-$("#canvas").offset().left) / 10);
-		var y = Math.floor((e.pageY-$("#canvas").offset().top) / 10);
-		x = x-34
-		y = y-9
+		var x = Math.floor((e.pageX-$("canvas").offset().left) / 10);
+		var y = Math.floor((e.pageY-$("canvas").offset().top) / 10);
+
 		clickBoard.push([x,y])
 		ctx.fillStyle = "rgb(0,0,0)";
 
@@ -44,6 +48,7 @@
 
 	$("#animate").click(function(e){
 		if(clickBoard.length ===0){ clickBoard = gunStarter}
+		//canvas,width,height,game array
 		var newBoard = new that.Conway.Game(canvas,1000,1000,clickBoard);
 		newBoard.start();
 	});
@@ -53,8 +58,3 @@
 	});
 
 	</script>
-</body>
-
-</html>
-
-
