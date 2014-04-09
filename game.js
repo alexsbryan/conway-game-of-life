@@ -44,7 +44,7 @@
 		for(var i = 0; i<this.on_cells.length; i++) {
 			this.board[this.on_cells[i][0]][this.on_cells[i][1]].makeAlive()
 		}
-		this.interval = window.setInterval(function() {that.play()},10);
+		this.interval = window.setInterval(function() {that.play()},5);
 	};
 
 	Game.prototype.play = function () {
